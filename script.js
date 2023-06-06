@@ -135,11 +135,148 @@ class L0_1 extends Phaser.Scene {
     }
 }
 
+class L1 extends Phaser.Scene {
+    constructor() {
+        super('L1');
+    }
+    preload() {
+        this.load.path = './assets/';
+    }
+    create() {
+        this.cameras.main.setBackgroundColor('#FFFFFF');
+        this.add.text(640, 240, "Level 1", { fontSize: 64, color: '#000000' }).setOrigin(0.5);
+        this.add.text(640, 480, "Tap the screen to continue", { fontSize: 48, color: '#000000' }).setOrigin(0.5);
+
+        this.input.on('pointerup', () => {
+            this.cameras.main.fade(1000, 0,0,0);
+			this.time.delayedCall(1000, () => this.scene.start('L1_1'));
+        });
+    }
+    update() {
+
+    }
+}
+
+class L1_1 extends Phaser.Scene {
+    constructor() {
+        super('L1_1');
+    }
+    preload() {
+        this.load.path = './assets/';
+    }
+    create() {
+        this.cameras.main.setBackgroundColor('#000000');
+        this.add.text(640, 240, "You escaped the Level 1.", { fontSize: 48, color: '#FFFFFF' }).setOrigin(0.5);
+        this.add.text(640, 480, "Don't get locked inside again...\nI warn you...", { fontSize: 48, color: '#FFFFFF' }).setOrigin(0.5);
+
+        this.input.on('pointerup', () => {
+            isLeveltwoLock = false;
+            this.cameras.main.fade(1000, 0,0,0);
+			this.time.delayedCall(1000, () => this.scene.start('LS'));
+        });
+    }
+    update() {
+
+    }
+}
+
+class L2 extends Phaser.Scene {
+    constructor() {
+        super('L2');
+    }
+    preload() {
+        this.load.path = './assets/';
+    }
+    create() {
+        this.cameras.main.setBackgroundColor('#FFFFFF');
+        this.add.text(640, 240, "Level 2", { fontSize: 64, color: '#000000' }).setOrigin(0.5);
+        this.add.text(640, 480, "Tap the screen to continue", { fontSize: 48, color: '#000000' }).setOrigin(0.5);
+
+        this.input.on('pointerup', () => {
+            this.cameras.main.fade(1000, 0,0,0);
+			this.time.delayedCall(1000, () => this.scene.start('L2_1'));
+        });
+    }
+    update() {
+
+    }
+}
+
+class L2_1 extends Phaser.Scene {
+    constructor() {
+        super('L2_1');
+    }
+    preload() {
+        this.load.path = './assets/';
+    }
+    create() {
+        this.cameras.main.setBackgroundColor('#000000');
+        this.add.text(640, 240, "You escaped the Level 2.", { fontSize: 48, color: '#FFFFFF' }).setOrigin(0.5);
+        this.add.text(640, 480, "Don't get locked inside again...\nThis is the serious warning...", { fontSize: 48, color: '#FFFFFF' }).setOrigin(0.5);
+
+        this.input.on('pointerup', () => {
+            isLevelthreeLock = false;
+            this.cameras.main.fade(1000, 0,0,0);
+			this.time.delayedCall(1000, () => this.scene.start('LS'));
+        });
+    }
+    update() {
+
+    }
+}
+
+class L3 extends Phaser.Scene {
+    constructor() {
+        super('L3');
+    }
+    preload() {
+        this.load.path = './assets/';
+    }
+    create() {
+        this.cameras.main.setBackgroundColor('#FFFFFF');
+        this.add.text(640, 240, "Level 3", { fontSize: 64, color: '#000000' }).setOrigin(0.5);
+        this.add.text(640, 480, "Tap the screen to continue", { fontSize: 48, color: '#000000' }).setOrigin(0.5);
+
+        this.input.on('pointerup', () => {
+            this.cameras.main.fade(1000, 0,0,0);
+			this.time.delayedCall(1000, () => this.scene.start('L3_1'));
+        });
+    }
+    update() {
+
+    }
+}
+
+class L3_1 extends Phaser.Scene {
+    constructor() {
+        super('L3_1');
+    }
+    preload() {
+        this.load.path = './assets/';
+    }
+    create() {
+        this.cameras.main.setBackgroundColor('#FFFFFF');
+        this.add.text(640, 240, "You escaped the Level 3.", { fontSize: 48, color: '#000000' }).setOrigin(0.5);
+        this.add.text(640, 480, "I think you already mastered in locking yourself and escaping\nso I do not have to worry you being locked inside again!", { fontSize: 32, color: '#000000' }).setOrigin(0.5);
+
+        this.input.on('pointerup', () => {
+            isLeveloneLock = true;
+            isLeveltwoLock = true;
+            isLevelthreeLock = true;
+            this.cameras.main.fade(1000, 0,0,0);
+			this.time.delayedCall(1000, () => this.scene.start('start'));
+        });
+    }
+    update() {
+
+    }
+}
+
 let config = {
     type: Phaser.WEBGL,
     width: 1280,
     height: 720,
-    scene: [start, LS, L0, L0_1]
+    scene: [start, LS, L0, L0_1, L1, L1_1, L2, L2_1, L3, L3_1]
 }
 
 let game = new Phaser.Game(config);
