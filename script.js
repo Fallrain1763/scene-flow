@@ -273,10 +273,15 @@ class L3_1 extends Phaser.Scene {
 }
 
 let config = {
-    type: Phaser.WEBGL,
-    width: 1280,
-    height: 720,
-    scene: [start, LS, L0, L0_1, L1, L1_1, L2, L2_1, L3, L3_1]
+	type: Phaser.WEBGL,
+	scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1280,
+        height: 720
+    },
+	backgroundColor: '#ffffff',
+	scene: [start, LS, L0, L0_1, L1, L1_1, L2, L2_1, L3, L3_1]
 }
 
 let game = new Phaser.Game(config);
